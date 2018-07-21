@@ -25,11 +25,11 @@ Press the RESET key on your keyboard (or a paperclip in the upper right hole on 
 
 Do not close QMK Toolbox. All you need now to do is to change the configuration, make the project and then press the RESET key again. Wait for the lights on the keyboards upp right corner to flash. You do not need to bother QMK Toolbox again.
 
-# Build environment
+## Build environment
 Make sure you have your [build environment setup](https://docs.qmk.fm/#/newbs_getting_started?id=environment-setup). Don't forget to install [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest).
 
 
-## Linux
+### Linux
 When using Linux you will not be able to install QMK Toolbox. Instead you will use Teensy Loader CLI and be like a BAUSS! Do the following (instructions from )
 
 * Clone the source code:
@@ -43,7 +43,7 @@ When using Linux you will not be able to install QMK Toolbox. Instead you will u
   `curl -sSlo /tmp/49-teensy.rules https://www.pjrc.com/teensy/49-teensy.rules`
 * Reconnect the keyboard (so Udev rules takes effect) and you are good to go.
 
-# Branches
+## Branches
 Instead of changing master, I will use my own branch for my changes. Consider master to be read only. This way I can keep the code up to date and rebase my branch on master. This separates my changes from theirs.
 
 All my branches will be prefixed with "aquaplanet-", e.g. aquaplanet-master.
