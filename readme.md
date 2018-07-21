@@ -1,9 +1,13 @@
 # My fork of QMK to store my keyboard configurations
+Look below for how to make a build environment.
+
 To build my keyboards run
 
     make ergodox_ez:anders
 
-Make sure you have your [build environment setup](https://docs.qmk.fm/#/newbs_getting_started?id=environment-setup). Don't forget to install [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest).
+or on Linux
+
+    make ergodox_ez:anders:teensy
 
 Start QMK ToolBox and check the Auto Flash checkbox. Open the firmware HEX-file called ergodox_ez_anders.hex which should be in qmk_firmware root directory
 
@@ -20,6 +24,24 @@ Press the RESET key on your keyboard (or a paperclip in the upper right hole on 
         Booting
 
 Do not close QMK Toolbox. All you need now to do is to change the configuration, make the project and then press the RESET key again. Wait for the lights on the keyboards upp right corner to flash. You do not need to bother QMK Toolbox again.
+
+# Build environment
+Make sure you have your [build environment setup](https://docs.qmk.fm/#/newbs_getting_started?id=environment-setup). Don't forget to install [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest).
+
+
+## Linux
+When using Linux you will not be able to install QMK Toolbox. Instead you will use Teensy Loader CLI and be like a BAUSS! Do the following (instructions from )
+
+* Clone the source code:
+  `git clone https://github.com/PaulStoffregen/teensy_loader_cli`
+* Install libusb-dev
+  `sudo apt install libusb-dev`
+* Run make:
+  `make`
+* Export the PATH variable to  contain this directory (put this in the startup scripts)
+* Don't forget to update the Udev rules:
+  `curl -sSlo /tmp/49-teensy.rules https://www.pjrc.com/teensy/49-teensy.rules`
+* Reconnect the keyboard (so Udev rules takes effect) and you are good to go.
 
 # Branches
 Instead of changing master, I will use my own branch for my changes. Consider master to be read only. This way I can keep the code up to date and rebase my branch on master. This separates my changes from theirs.
