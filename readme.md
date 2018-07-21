@@ -28,9 +28,8 @@ Do not close QMK Toolbox. All you need now to do is to change the configuration,
 ## Build environment
 Make sure you have your [build environment setup](https://docs.qmk.fm/#/newbs_getting_started?id=environment-setup). Don't forget to install [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest).
 
-
 ### Linux
-When using Linux you will not be able to install QMK Toolbox. Instead you will use Teensy Loader CLI and be like a BAUSS! Do the following (instructions from )
+When using Linux you will not be able to install QMK Toolbox. Instead you will use Teensy Loader CLI and be like a BAUSS! Do the following (instructions from https://www.pjrc.com/teensy/loader_cli.html and https://www.pjrc.com/teensy/loader_linux.html).
 
 * Clone the source code:
   `git clone https://github.com/PaulStoffregen/teensy_loader_cli`
