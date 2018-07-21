@@ -1,3 +1,33 @@
+# My fork of QMK to store my keyboard configurations
+To build my keyboards run
+
+    make ergodox_ez:anders
+
+Make sure you have your [build environment setup](https://docs.qmk.fm/#/newbs_getting_started?id=environment-setup). Don't forget to install [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest).
+
+Start QMK ToolBox and check the Auto Flash checkbox. Open the firmware HEX-file called ergodox_ez_anders.hex which should be in qmk_firmware root directory
+
+Press the RESET key on your keyboard (or a paperclip in the upper right hole on the keyboard) and the firmware should be immediately flashed to the keyboard. Then the keyboard will reboot and flash in the upper right corner.
+
+    *** Halfkay device connected
+    *** Attempting to flash, please don't remove device
+    >>> teensy_loader_cli -mmcu=atmega32u4 /Users/megaman/qmk_firmware/ergodox_ez_anders.hex -v
+        Teensy Loader, Command Line, Version 2.1
+        Read "/Users/megaman/qmk_firmware/ergodox_ez_anders.hex": 25232 bytes, 78.2% usage
+        Found HalfKay Bootloader
+
+        Programming...............................................................................
+        Booting
+
+Do not close QMK Toolbox. All you need now to do is to change the configuration, make the project and then press the RESET key again. Wait for the lights on the keyboards upp right corner to flash. You do not need to bother QMK Toolbox again.
+
+# Branches
+Instead of changing master, I will use my own branch for my changes. Consider master to be read only. This way I can keep the code up to date and rebase my branch on master. This separates my changes from theirs.
+
+All my branches will be prefixed with "aquaplanet-", e.g. aquaplanet-master.
+
+---
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
