@@ -42,11 +42,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ALT_T(KC_APP),	RESET,		KC_HOME,	KC_SPC,		KC_BSPC,	KC_END,
 
    // right hand
-   KC_LEAD,		KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
+   KC_RIGHT,		KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
    TG(SYMB),		KC_Y,		KC_U,		KC_I,		KC_O,		KC_P,		NO_AA,
    KC_H,		KC_J,		KC_K,		KC_L,		NO_OSLH,	NO_AE,
    MEH_T(KC_NO),	KC_N,		KC_M,		KC_COMM,	KC_DOT,		CTL_T(KC_SLSH),	KC_RSFT,
-   KC_UP,		KC_DOWN,	KC_LBRC,	KC_RBRC,	KC_FN1,
+   KC_LEAD,		KC_DOWN,	KC_LBRC,	KC_RBRC,	KC_FN1,
 
    KC_LALT,		CTL_T(KC_ESC),	KC_PGUP,	KC_PGDN,	KC_TAB,		KC_ENT),
 
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TRNS,		KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_TRNS,
    KC_TRNS,		KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_MPLY,
    KC_TRNS,		KC_TRNS,	KC_TRNS,	KC_MPRV,	KC_MNXT,	KC_TRNS,	KC_TRNS,
-   KC_VOLU,		KC_VOLD,	KC_MUTE,	KC_TRNS,	KC_TRNS,
+   KC_TRNS,		KC_VOLD,	KC_MUTE,	KC_TRNS,	KC_TRNS,
 
    KC_TRNS,		KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_WBAK),
 };
@@ -151,7 +151,6 @@ void matrix_init_user(void) {
 };
 
 LEADER_EXTERNS();
-
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
   LEADER_DICTIONARY() {
@@ -161,10 +160,10 @@ void matrix_scan_user(void) {
     SEQ_ONE_KEY(KC_LEAD) {
       layer_clear();
     }
-    SEQ_ONE_KEY(KC_1) {
+    SEQ_ONE_KEY(KC_J) {
       layer_on(SYMB);
     }
-    SEQ_ONE_KEY(KC_2) {
+    SEQ_ONE_KEY(KC_K) {
       layer_on(MDIA);
     }
   }
