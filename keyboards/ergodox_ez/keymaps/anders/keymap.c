@@ -10,6 +10,8 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
+#define LEADER_TIMEOUT 300
+
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
@@ -37,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ALT_T(KC_APP),	RESET,		KC_HOME,	KC_SPC,		KC_BSPC,	KC_END,
 
    // right hand
-   KC_RGHT,		KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
+   KC_RGHT,		KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_LEAD,
    TG(SYMB),		KC_Y,		KC_U,		KC_I,		KC_O,		KC_P,		NO_AA,
    KC_H,		KC_J,		KC_K,		KC_L,		NO_OSLH,	NO_AE,
    MEH_T(KC_NO),	KC_N,		KC_M,		KC_COMM,	KC_DOT,		CTL_T(KC_SLSH),	KC_RSFT,
@@ -55,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TRNS,		KC_HASH,	KC_DLR,		KC_LPRN,	KC_RPRN,	KC_GRV,
    KC_TRNS,		KC_PERC,	KC_CIRC,	KC_LBRC,	KC_RBRC,	KC_TILD,	KC_TRNS,
    EPRM,		KC_TRNS,	KC_TRNS,	KC_TRNS,	KC_TRNS,	RGB_MOD,
-   
+
    KC_TRNS,		KC_TRNS,	RGB_VAD,	RGB_VAI,	KC_TRNS,
 
    // right hand
@@ -145,8 +147,26 @@ void matrix_init_user(void) {
 #endif
 };
 
+LEADER_EXTERNS();
+
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_ONE_KEY(KC_1) {
+      SEND_STRING("Pressed 1");
+    }
+    SEQ_ONE_KEY(KC_2) {
+      SEND_STRING("Pressed 2");
+    }
+    SEQ_ONE_KEY(KC_3) {
+      SEND_STRING("Pressed 3");
+    }
+
+  }
+
 
 };
 
