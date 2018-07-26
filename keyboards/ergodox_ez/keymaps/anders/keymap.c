@@ -10,9 +10,10 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
-// 10 seconds for leader key timeout. That should be plenty to press it
-// and search for the right key even if I am very slow that day.
-#define LEADER_TIMEOUT 10000
+// Don't increase this more than 300 milliseconds. The keyboard will
+// wait this long no matter if you typed the only available keyboard
+// sequence or not.
+#define LEADER_TIMEOUT 300
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -41,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ALT_T(KC_APP),	RESET,		KC_HOME,	KC_SPC,		KC_BSPC,	KC_END,
 
    // right hand
-   KC_RGHT,		KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_LEAD,
+   KC_LEAD,		KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
    TG(SYMB),		KC_Y,		KC_U,		KC_I,		KC_O,		KC_P,		NO_AA,
    KC_H,		KC_J,		KC_K,		KC_L,		NO_OSLH,	NO_AE,
    MEH_T(KC_NO),	KC_N,		KC_M,		KC_COMM,	KC_DOT,		CTL_T(KC_SLSH),	KC_RSFT,
@@ -63,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TRNS,		KC_TRNS,	RGB_VAD,	RGB_VAI,	KC_TRNS,
 
    // right hand
-   KC_TRNS,		KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_TRNS,
+   KC_TRNS,		KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_F11,
    KC_TRNS,		KC_UP,		KC_7,		KC_8,		KC_9,		KC_ASTR,	KC_F12,
    KC_DOWN,		KC_4,		KC_5,		KC_6,		KC_PLUS,	KC_TRNS,
    KC_TRNS,		KC_AMPR,	KC_1,		KC_2,		KC_3,		KC_BSLS,	KC_TRNS,
