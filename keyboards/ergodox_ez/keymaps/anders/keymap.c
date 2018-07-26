@@ -10,7 +10,9 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
-#define LEADER_TIMEOUT 300
+// 10 seconds for leader key timeout. That should be plenty to press it
+// and search for the right key even if I am very slow that day.
+#define LEADER_TIMEOUT 10000
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
